@@ -1,10 +1,67 @@
 <html>
-    <h1>elliott's spot the ghost </h1>
-    <div>
-        <img src="Super Scary Ghost.jpg" width="300px"/>
-    </div>
-    <div>
-        <img src="Goo.png"/>
-    </div>    
-    <p></p>
+    <head>
+    <script type="text/javascript">
+            function leftArrowPressed() {
+                var element = document.getElementById("robots");
+                element.style.left = parseInt(element.style.left) - 5 + 'px';
+            }
+
+            function rightArrowPressed() {
+                var element = document.getElementById("robots");
+                element.style.left = parseInt(element.style.left) + 5 + 'px';
+            }
+
+            function upArrowPressed() {
+                var element = document.getElementById("robots");
+                element.style.top = parseInt(element.style.top) - 5 + 'px';
+            }
+
+            function downArrowPressed() {
+                var element = document.getElementById("robots");
+                element.style.top = parseInt(element.style.top) + 5 + 'px';
+            }
+
+            function moveSelection(evt) {
+                switch (evt.keyCode) {
+                    case 37:
+                    leftArrowPressed();
+                    break;
+                    case 39:
+                    rightArrowPressed();
+                    break;
+                    case 38:
+                    upArrowPressed();
+                    break;
+                    case 40:
+                    downArrowPressed();
+                    break;
+                    }
+                };
+
+        function gameLoop()
+        {
+          // change position based on speed
+          moveSelection();
+          setTimeout("gameLoop()",10);
+        }
+
+        function docReady()
+        {
+            window.addEventListener('keydown', moveSelection);
+        }
+    </script>
+    </head>
+    <body onload="docReady()" onkeydown="" onkeyup="">
+        <h1>elliott's spot the ghost</h1>
+        <div>
+            <img src="Super Scary Ghost.jpg" width="300px"/>
+        </div>
+        <div>
+            <img src="http://pmdvod.nationalgeographic.com/NG_Video/596/647/161201-news-rescued-wombat-vin_640x360_822245443978.jpg"/>
+            <img src="Goo.png" width="500px"/>
+            <img id="robots" src="https://cdn.shutterstock.com/shutterstock/videos/1492267/thumb/1.jpg"/>
+        </div>
+        <p></p>
+    </body>
+    
 </html>
